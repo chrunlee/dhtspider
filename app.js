@@ -19,13 +19,14 @@ p2pspider(function(data){
    		infohash = data.infohash,
    		magnet = data.magnet,
    		str = JSON.stringify(data);
-   	console.log('抓取到数据......'+name)
+   	console.log('抓取到数据......'+name+infohash)
       //在保存前检索infohash，重复的不要
       query({
          sql : 'select count(1) as num from demo_magnet where infohash=? ',params : [infohash]
       })
       .then(rs=> {
          var rst = rs[0];
+         console.log(rs);
          if(rst.length > 0){
             return 1;
          }else{
