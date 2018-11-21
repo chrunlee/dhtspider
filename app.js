@@ -19,7 +19,7 @@ p2pspider(function(data){
    		infohash = data.infohash,
    		magnet = data.magnet,
    		str = JSON.stringify(data);
-   	
+   	console.log('抓取到数据......'+name)
       //在保存前检索infohash，重复的不要
       query({
          sql : 'select count(1) as num from demo_magnet where infohash=? ',params : [infohash]
@@ -30,8 +30,8 @@ p2pspider(function(data){
             return 1;
          }else{
             return query({
-               sql : 'insert into demo_magnet (name,filesize,fileaddress,fileport,infohash,magnet,json) values (?,?,?,?,?,?,?)',
-               params : [name,size,address,port,infohash,magnet,str]
+               sql : 'insert into demo_magnet (name,filesize,fileaddress,fileport,infohash,magnet,json,createTime) values (?,?,?,?,?,?,?,?)',
+               params : [name,size,address,port,infohash,magnet,str,new Date()]
             });
          }
       }).then(rs=>{
