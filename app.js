@@ -2,7 +2,7 @@ var query = require('simple-mysql-query');
 query({
 	host : 'localhost',
 	port : '3306',
-	username : 'root',
+	user : 'root',
 	password : 'root',
 	database : 'items'
 });
