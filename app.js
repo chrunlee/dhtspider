@@ -38,6 +38,8 @@ p2pspider(function(data){
          if(rs != 1){
             count++;
             console.log(`共计获取信息:${count}条`);
+         }else{
+            console.log('重复数据，去除')
          }
       }).catch(err=>{
          console.log(err);
