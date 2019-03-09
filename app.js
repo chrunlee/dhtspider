@@ -6,10 +6,9 @@ query({
 	password : 'root',
 	database : 'items'
 });
-var count = 0;
 var p2pspider = require('p2pspider');
 p2pspider(function(data){
-    //将获得的信息存储在数据库中，以待后续在数据库中查询
+      //将获得的信息存储在数据库中，以待后续在数据库中查询
    	//1.只保留
    	data.pieces =null;
    	var name = data.name,
@@ -36,8 +35,7 @@ p2pspider(function(data){
          }
       }).then(rs=>{
          if(rs != 1){
-            count++;
-            console.log(`共计获取信息:${count}条`);
+            console.log(`${name}`);
          }
       }).catch(err=>{
          console.log(err);
